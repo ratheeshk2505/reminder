@@ -1,0 +1,35 @@
+<div class="container-fluid sticky-top">
+        <header class="bg-black border-bottom border-grey ">
+            <h2 class="text-white text-center p-2">NotesPro</h2>
+        </header>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 p-2 border bg-dark rounded-3 border-dark mt-3">
+            <h3 class="ps-4 mb-4 text-white">Register Here..</h3>
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
+                <div class="m-1">
+                    <input class="form-control bg-black text-white m-1" type="text" name="pname" id="pname" formControlName="pname" placeholder="Your Name">
+                    <span *ngIf="(this.registerForm.get('pname')?.touched||this.registerForm.get('pname')?.dirty)&&this.registerForm.get('pname')?.errors" class="text-danger m-3">Invalid Name.</span>
+                </div>
+                <div class="m-1">
+                    <input class="form-control bg-black text-white m-1" type="text" name="uname" id="uname" formControlName="uname" placeholder="Username">
+                    <span *ngIf="(this.registerForm.get('uname')?.touched||this.registerForm.get('uname')?.dirty)&&this.registerForm.get('uname')?.errors" class="text-danger m-3">Invalid Username.</span>
+                </div>
+                <div class="m-1">
+                    <input class="form-control bg-black text-white m-1" type="password" name="pwrd" id="pwrd" formControlName="pwrd" placeholder="Password">
+                    <span *ngIf="(this.registerForm.get('pwrd')?.touched||this.registerForm.get('pwrd')?.dirty)&&this.registerForm.get('pwrd')?.errors" class="text-danger m-3">Invalid Password.</span>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary m-1" type="submit">Register</button>
+                    <button class="btn btn-secondary m-1" type="reset">Reset</button>
+                </div>
+            </form>
+            <div class="text-center m-4"><button class="btn btn-secondary"><a routerLink="" class="a-decoration">Back to Login Page</a></button></div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+

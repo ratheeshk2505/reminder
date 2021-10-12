@@ -1,0 +1,75 @@
+<div class="container-fluid sticky-top">
+    <header class="bg-black border-bottom border-grey ">
+        <div class=" m-0 pe-5 text-end">
+            <span class="text-white  px-3" title="Login Time">{{dLogin | date:'mediumDate' | titlecase}}</span>
+            <a href="" class="text-white a-decoration-logout px-3" title="Logout" (click)="logout()"> LogOut</a>
+        </div>
+        <div>
+            <h2 class="text-white text-center mb-0 pb-2"> {{user | titlecase}} Welcome to NotesPro</h2>
+        </div>
+    </header>
+</div>
+
+<div class="container">
+    <div class="row">
+        <!-- side bar -->
+        <div class="col-3">
+            <div class="mt-5 rounded-3 bg-dark">
+                <div class="px-3 py-3 rounded-3  bg-dark">
+                    <span class="a-decoration text-white fs-6">Links</span>
+                </div>
+                <hr style="color: white; margin:0px;">
+                <div class="m-0 border-none">
+                    <button class="anker-button">
+                        <a class="a-decoration text-white fs-5" routerLink="/createnote">Create Event</a>
+                    </button>
+                </div>
+                <div class="m-0 border-none">
+                    <button class="anker-button">
+                        <a class="a-decoration text-white fs-5" routerLink="/viewnotes">View Events</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- dashboard -->
+        <div class="col-9 mt-0">
+            <div class="container">
+                <div class="row mt-0">
+                    <div class="text-center text-white fs-3">{{Msg}}</div>
+                    <!-- update view only visible on update api call -->
+                    <div class="row mb-2" *ngIf="updateNote">
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <form>
+                                <div class="p-2 my-1 rounded-3 bg-dark">
+                                    <h4 class="text-white py-2 px-3">Update Event Now..</h4>
+                                    <input type="text" class="form-control bg-black text-white m-1" name="rname" id="rname" (change)="rnameChange($event)" value="{{updateNote.rheading}}">
+                                    <input type="text" class="form-control bg-black text-white m-1" name="rdescription" id="rdescription" (change)="rdescChange($event)" value="{{updateNote.rdesc}}">
+                                    <input type="date" class="form-control bg-black text-white m-1" name="rdate" id="rdate" (change)="rDChange($event)" value="{{updateNote.rdate}}">
+                                    <div class="text-center">
+                                        <button id="{{updateNote._id}}" value="{{updateNote._id}}" type="submit" (click)="saveN()" class="btn btn-success m-1">Save</button>
+                                        <button id="{{updateNote._id}}" type="reset" (click)="cancelN()" class="btn btn-secondary m-1">Cancel</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-3"></div>
+                    </div>
+
+                    <!-- default view, listing all event notes.. -->
+                    <div class="col-4" *ngFor="let note of todayNotes">
+                        <div class="bg-dark px-3 py-2 my-2 border rounded-3 border-dark">
+                            <h4 class="text-white">{{note.rheading | titlecase}}</h4>
+                            <h6 class="text-grey">{{note.rdesc | titlecase}}</h6>
+                            <h6 class="text-grey">{{note.rdate}}</h6>
+                            <div class="text-center">
+                                <button id="{{note._id}}" value="{{note._id}}" type="submit" (click)="updateN($event)" class="btn btn-success m-1">Update</button>
+                                <button id="{{note._id}}" value="{{note._id}}" type="reset" (click)="deleteN($event)" class="btn btn-danger m-1">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container-fluid sticky-top">
+    <header class="bg-black border-bottom border-grey ">
+        <h2 class="text-white text-center p-2">NotesPro</h2>
+    </header>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 p-2 border rounded-3 border-dark bg-dark mt-3">
+            <h3 class="text-center text-white my-3">Login to NotesPro</h3>
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="m-1 px-4 py-2">
+                    <input class="form-control bg-black text-white m-1" type="text" name="uname" id="uname" formControlName="uname" placeholder="Username">
+                    <span *ngIf="(this.loginForm.get('uname')?.touched||this.loginForm.get('uname')?.dirty)&&this.loginForm.get('uname')?.errors" class="text-danger m-3">Invalid Username.</span>
+                </div>
+                <div class="m-1 px-4 py-2">
+                    <input class="form-control bg-black text-white m-1" type="password" name="pwrd" id="pwrd" formControlName="pwrd" placeholder="Password">
+                    <span *ngIf="(this.loginForm.get('pwrd')?.touched||this.loginForm.get('pwrd')?.dirty)&&this.loginForm.get('pwrd')?.errors" class="text-danger m-3">Invalid Password.</span>
+                </div>
+                <div class="text-center mt-2 mb-4">
+                    <button class="btn btn-primary m-1" type="submit">Login</button>
+                    <button class="btn btn-secondary m-1" type="reset">Reset</button>
+                </div>
+            </form>
+            <div class="text-center mx-4 mb-3 p-2 border bg-dark rounded-3 border-info">
+                <a routerLink="register" class="a-decoration text-white fs-6">Register Here</a>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>

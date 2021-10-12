@@ -1,0 +1,38 @@
+<div class="container-fluid sticky-top">
+        <header class="bg-black border-bottom border-grey ">
+            <div class=" m-0 pe-5 text-end">
+                <span class="text-white  px-3" title="Login Time">{{dLogin | date:'mediumDate' | titlecase}}</span>
+                <a href="" class="text-white a-decoration-logout px-3" title="Logout" (click)="logout()"> LogOut</a>
+            </div>
+            <div><h2 class="text-white text-center mb-0 pb-2"> {{user | titlecase}} Welcome to NotesPro</h2></div>
+        </header>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>   
+        <div class="col-6 p-2 border border-dark bg-dark rounded-3 mt-3">
+            <h3 class="ps-4 mb-4 text-white">Create an Event..</h3>
+            <form [formGroup]="createForm" (ngSubmit)="createnote()">
+                <div class="m-1">
+                    <input class="form-control bg-black text-white m-1" type="text" name="rname" id="rname" formControlName="rname" placeholder="Event Heading">
+                    <span *ngIf="(this.createForm.get('rname')?.touched||this.createForm.get('rname')?.dirty)&&this.createForm.get('rname')?.errors" class="text-danger m-3">Invalid Name.</span>
+                </div>
+                <div class="m-1">
+                    <input class="form-control bg-black text-white m-1" type="text-area" name="rdescription" id="rdescription" formControlName="rdescription" placeholder="Event Description">
+                    <span *ngIf="(this.createForm.get('rdescription')?.touched||this.createForm.get('rdescription')?.dirty)&&this.createForm.get('rdescription')?.errors" class="text-danger m-3">Invalid Username.</span>
+                </div>
+                <div class="m-1">
+                    <input class="form-control bg-black text-white m-1" type="date" name="rdate" id="rdate" formControlName="rdate" placeholder="Event Date">
+                    <span *ngIf="(this.createForm.get('rdate')?.touched||this.createForm.get('rdate')?.dirty)&&this.createForm.get('rdate')?.errors" class="text-danger m-3">Invalid Password.</span>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary m-1" type="submit">Create</button>
+                    <button class="btn btn-secondary m-1" type="reset">Reset</button>
+                </div>
+            </form>
+            <div class="text-center m-4"><button class="btn btn-secondary"><a routerLink="/dashboard" class="a-decoration">Back to Dashboard</a></button></div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>

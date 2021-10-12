@@ -1,0 +1,68 @@
+
+
+
+                                                  Angular
+                                          ------------------------
+
+                        1. Module - Root Module - AppModule
+
+                        2. Component - Root Component - AppComponent - { html, css, ts file ,spec.ts}
+
+                        3. Data Binding
+
+                            3.1 One Way Binding 
+
+                                3.1.1 From Component to View
+
+                                    3.1.1.1 Interpolation/ String Interpolation - {{templateExpression}}
+
+                                    3.1.1.2 Property Binding - [binding-target]= "binding-source"
+
+                                  3.1.2 From View to Component
+
+                                    3.1.2.1 Event Binding - (event)="function_call()"
+
+                                    3.1.2.2 Event Binding using $event as argument- (event)="function_call($event)"
+
+                                    3.1.2.3 Event binding using template referencing variable: #variable_name
+
+                              
+                            3.2 Two way Binding - ngModel -{ import FormsModule} syntanx: [(ngModel)]="variable_name"
+
+                        4. Routing
+
+                        5. Dependency Injection / Inversion of Control
+
+                        6. Services 
+
+                        7. ngSubmit
+
+                        8. Angular Form 
+
+                            8.1 Template Driven forms
+
+                            8.2 Model Driven Forms 
+
+                              8.2.1 Reactive Form - { import ReactiveFormsModule } -{ Formgroup, FormArray, FormControl} - Validation
+
+                        9. Angular Directives - DOM Manipulation
+
+                          9.1 Component Directives 
+
+                          9.2 Structural Directives - { * }
+
+                              9.2.1 ngIf - { *ngIf="expression" }
+
+                              9.2.2 ngSwitch - { *ngSwitch="expression" }
+
+                              9.2.3 ngFor 
+
+                        10. Local Storage
+
+                          10.1 setItem
+
+                          10.2 getItem
+
+                          10.3 removeItem
+
+                        
